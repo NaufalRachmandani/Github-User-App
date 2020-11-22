@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">GithubUserApp</string>
+    <string name="github_user">Github User</string>
+    <string name="user_name">username</string>
+    <string name="description">description</string>
+    <string name="username">Username</string>
+    <string name="follower">Follower</string>
+    <string name="following">Following</string>
+    <string name="follower_number">follower number</string>
+    <string name="following_number">following number</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">search</string>
+    <string name="search_hint">Masukkan username</string>
+    <string name="cari_username">Cari Username</string>
+    <string name="name">Name</string>
+    <string name="location">Location</string>
+    <string name="repository">Repository</string>
+    <string name="company">Company</string>
+    <string name="maaf_coba_ulang_lagi">Maaf coba ulang lagi</string>
+    <string name="coba_lagi">Coba Lagi</string>
+    <string name="if_list_no_loaded">If list no loaded</string>
+    <string name="not_loaded_list_user">Not Loaded list User</string>
+    <string name="button_back">button back</string>
+    <string name="cari_username_favorite">Cari Username Favorite</string>
+    <string name="favorite_user">Favorite User</string>
+    <string name="reminder">Reminder</string>
+    <string name="reminder_at">Reminder At 09:00 AM</string>
+    <string name="setting">Setting</string>
+</resources>
