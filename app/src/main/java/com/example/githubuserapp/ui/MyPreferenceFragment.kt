@@ -7,7 +7,7 @@ import androidx.preference.SwitchPreference
 import com.example.githubuserapp.R
 import com.example.githubuserapp.utils.AlarmReceiver
 
-class MyPreferenceFragment() : PreferenceFragmentCompat(),
+class MyPreferenceFragment : PreferenceFragmentCompat(),
     SharedPreferences.OnSharedPreferenceChangeListener {
 
     private lateinit var ON: String

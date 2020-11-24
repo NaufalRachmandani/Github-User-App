@@ -39,4 +39,8 @@ class FavoriteAdapter(
         }
     }
 
+    fun filter(filteredList: MutableList<UserResponse>) {
+        list = filteredList
+        notifyDataSetChanged()
+    }
 }

@@ -73,7 +73,6 @@ class FavoriteActivity : AppCompatActivity(), OnListItemClickListener, View.OnCl
     private fun filter(text: String) {
         val filteredList = mutableListOf<UserResponse>()
 
-
         for (user in list) {
             if (user.login?.toLowerCase(Locale.ROOT)
                     ?.contains(text.toLowerCase(Locale.ROOT)) == true

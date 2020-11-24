@@ -140,13 +140,13 @@ class UserViewModel(private val app: Application) : AndroidViewModel(app) {
         }
     }
 
-    fun deleteUser(userResponse: UserResponse){
+    fun deleteUser(userResponse: UserResponse) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.deleteUser(userResponse)
         }
     }
 
-    fun deleteAllUsers(){
+    fun deleteAllUsers() {
         viewModelScope.launch(Dispatchers.IO) {
             repository.deleteAllUser()
         }

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ConsumerApp</string>
     <string name="username">Username</string>
+    <string name="cari_username_favorite_user">Cari Username Favorite User</string>
 </resources>
