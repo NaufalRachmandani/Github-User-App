@@ -21,7 +21,7 @@ class DetailUserActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var userDetailPager: UserDetailPager
     private lateinit var userViewModel: UserViewModel
     private lateinit var username: String
-    private lateinit var user: UserResponse
+    private var user: UserResponse? = null
     private var isFav = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,6 +71,8 @@ class DetailUserActivity : AppCompatActivity(), View.OnClickListener {
             if (container_name_detail.text == it?.name) {
                 user = it
             }
+
+            fab_detail_user.isEnabled = true
         })
 
         userViewModel.readAllData.observe(this, {
@@ -110,9 +112,9 @@ class DetailUserActivity : AppCompatActivity(), View.OnClickListener {
             R.id.fab_detail_user -> {
                 isFav = !isFav
                 if (isFav) {
-                    userViewModel.addUser(user)
+                    user?.let { userViewModel.addUser(it) }
                 } else {
-                    userViewModel.deleteUser(user)
+                    user?.let { userViewModel.deleteUser(it) }
                 }
                 isFavorite(isFav)
             }

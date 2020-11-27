@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity() {
         val handler = Handler(handlerThread.looper)
         val myObserver = object : ContentObserver(handler) {
             override fun onChange(self: Boolean) {
-
             }
         }
 
@@ -59,7 +58,11 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                filter(p0.toString())
+                if (p0.isNullOrEmpty() || p0.isNullOrBlank() || p0.toString() == "") {
+                    showRecyclerList()
+                } else {
+                    filter(p0.toString())
+                }
             }
         })
     }

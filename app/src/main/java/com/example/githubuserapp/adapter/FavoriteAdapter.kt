@@ -11,7 +11,7 @@ import com.example.githubuserapp.utils.GlideApp
 import kotlinx.android.synthetic.main.item_row_user.view.*
 
 class FavoriteAdapter(
-    private var list: MutableList<UserResponse>?,
+    private var list: MutableList<UserResponse>,
     private val onListItemClickListener: OnListItemClickListener
 ) :
     RecyclerView.Adapter<FavoriteAdapter.ListViewHolder>() {
@@ -22,10 +22,10 @@ class FavoriteAdapter(
         return ListViewHolder(view)
     }
 
-    override fun getItemCount(): Int = list?.size ?: 0
+    override fun getItemCount(): Int = list.size
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        holder.bind(list?.get(position))
+        holder.bind(list.get(position))
     }
 
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -46,10 +46,5 @@ class FavoriteAdapter(
                 }
             }
         }
-    }
-
-    fun filter(filteredList: MutableList<UserResponse>) {
-        list = filteredList
-        notifyDataSetChanged()
     }
 }

@@ -13,11 +13,11 @@
         android:layout_height="wrap_content"
         android:background="@color/colorTransparent"
         android:src="@drawable/ic_baseline_arrow_back_24"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_title_favorite"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toStartOf="@+id/tv_title_favorite"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_title_favorite"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_title_favorite"
@@ -27,6 +27,8 @@
         android:text="@string/favorite_user"
         android:textColor="@color/colorBlack"
         android:textSize="24sp"
+        android:paddingBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/rv_user_favorite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -37,33 +39,10 @@
         android:layout_height="wrap_content"
         android:background="@color/colorTransparent"
         android:src="@drawable/ic_baseline_delete_24"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_title_favorite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toEndOf="@+id/tv_title_favorite"
-        app:layout_constraintTop_toTopOf="@+id/tv_title_favorite"/>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/searchField"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:hint="@string/cari_username_favorite"
-        android:padding="10dp"
-        app:boxBackgroundColor="@android:color/transparent"
-        app:endIconMode="clear_text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title_favorite"
-        app:startIconDrawable="@drawable/ic_search_white_24dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_search_favorite"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:textSize="14sp"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toTopOf="@+id/btn_bacK_fav"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_user_favorite"
@@ -73,7 +52,7 @@
         android:paddingBottom="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchField"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_favorite"
         tools:listitem="@layout/item_row_user"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -251,6 +251,7 @@
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
         android:backgroundTint="@color/colorSecondaryLight"
+        android:enabled="false"
         android:contentDescription="@string/favorite_user"
         android:src="@drawable/ic_baseline_favorite_border_24"
         app:tint="@color/colorFavorite"/>
