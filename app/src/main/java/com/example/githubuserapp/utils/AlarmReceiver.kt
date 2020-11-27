@@ -1,9 +1,6 @@
 package com.example.githubuserapp.utils
 
-import android.app.AlarmManager
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
+import android.app.*
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -13,6 +10,7 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import com.example.githubuserapp.R
+import com.example.githubuserapp.ui.MainActivity
 import org.jetbrains.anko.toast
 import java.util.*
 
@@ -42,11 +40,10 @@ class AlarmReceiver : BroadcastReceiver() {
         intent.putExtra(EXTRA_MESSAGE, "Github User App Daily Reminder (turn off in setting)")
 
         // Set the alarm to start at 09:00 a.m.
-        //eror delay notif in xiaomi redmi 4(delay can more than 5 minutes)
         val calendar: Calendar = Calendar.getInstance().apply {
             timeInMillis = System.currentTimeMillis()
-            set(Calendar.HOUR_OF_DAY, 9)
-            set(Calendar.MINUTE, 0)
+            set(Calendar.HOUR_OF_DAY, 14)
+            set(Calendar.MINUTE, 35)
             set(Calendar.SECOND, 0)
         }
 
@@ -73,6 +70,15 @@ class AlarmReceiver : BroadcastReceiver() {
             context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
 
+        val notificationIntent = Intent(context, MainActivity::class.java)
+        notificationIntent.flags = (Intent.FLAG_ACTIVITY_CLEAR_TOP
+                or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+
+        val intent = PendingIntent.getActivity(
+            context, 0,
+            notificationIntent, 0
+        )
+
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_baseline_notifications_24)
             .setContentTitle(title)
@@ -80,6 +86,7 @@ class AlarmReceiver : BroadcastReceiver() {
             .setColor(ContextCompat.getColor(context, android.R.color.transparent))
             .setVibrate(longArrayOf(1000, 1000, 1000, 1000, 1000))
             .setSound(alarmSound)
+            .setContentIntent(intent)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
@@ -94,6 +101,7 @@ class AlarmReceiver : BroadcastReceiver() {
         }
 
         val notification = builder.build()
+        notification.flags = notification.flags or Notification.FLAG_AUTO_CANCEL
         notificationManagerCompat.notify(notifId, notification)
     }
 
